@@ -24,9 +24,11 @@ response = client.models.generate_content(
     )
 )
 
-data = json.loads(response.text)
-
-print("Explanation:", data["explanation"])
-print("Difficulty:", data["difficulty"])
-print("Fun fact:", data["fun_fact"])
-
+try:
+    data = json.loads(response.text)
+    print("Explanation:", data["explanation"])
+    print("Difficulty:", data["difficulty"])
+    print("Fun fact:", data["fun_fact"])
+except json.JSONDecodeError:
+    print("Sorry — the model didn't return valid data. Here's what it sent:")
+    print(response.text)
