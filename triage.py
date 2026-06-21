@@ -29,6 +29,9 @@ try:
     print("Sentiment:", data["sentiment"])
     print("Category:", data["category"])
     print("Urgency:", data["urgency"])
+    if data["sentiment"] == "negative" and data["urgency"] == "high":
+        print("🚨 ALERT: escalate this to a human now.")
 except json.JSONDecodeError:
     print("Sorry — the model didn't return valid data. Here's what it sent:")
     print(response.text)
+
