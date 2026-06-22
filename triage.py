@@ -3,7 +3,10 @@ from google.genai import types
 import json
 
 feedback = input("Paste the customer comment: ")
-
+if not feedback.strip():
+    print("No comment entered. Please run again and paste a real comment.")
+    exit()
+    
 client = genai.Client()
 
 response = client.models.generate_content(
