@@ -16,9 +16,9 @@ response = client.models.generate_content(
         response_schema={
             "type": "object",
             "properties": {
-                "sentiment": {"type": "string"},
+                "sentiment": {"type": "string", "enum": ["positive", "neutral", "negative"]},
                 "category": {"type": "string"},
-                "urgency": {"type": "string"}
+                "urgency": {"type": "string", "enum": ["low", "medium", "high"]}
             }
         }
     )
